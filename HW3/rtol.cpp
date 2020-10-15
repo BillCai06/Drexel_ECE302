@@ -67,7 +67,7 @@ void left(int t){
       fclose(LEDHandle);
     }
 }
-void right(){
+void right(int t){
 
     if((LEDHandle = fopen(LEDBrightness3, "r+")) != NULL){
       fwrite("1", sizeof(char), 1, LEDHandle);
@@ -120,18 +120,18 @@ void right(){
 }
  
 int main(int argc, char** argv) {
-    int t;
+    int tii;
     char LorR;
     cout << "Type L or R: "; // Type a number and press enter
     cin >> LorR; // Get user input from the keyboard
     cout << "Time in us "; 
-    cin >> t;
+    cin >> tii;
  
-  while(1){
+  while(LorR != '\0' && tii != 0 ){
     if(LorR =='R'){
-        right(t);
+        right(tii);
     }else if(LorR =='L'){
-        left(t);
+        left(tii);
     }else{
         break;
     }
