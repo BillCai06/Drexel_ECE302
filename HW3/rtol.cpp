@@ -10,6 +10,12 @@
 using namespace std;
 unsigned int microseconds;
 
+ FILE *LEDHandle = NULL;
+  char *LEDBrightness0 = "/sys/class/leds/beaglebone:green:usr0/brightness";
+  char *LEDBrightness1 = "/sys/class/leds/beaglebone:green:usr1/brightness";
+  char *LEDBrightness2 = "/sys/class/leds/beaglebone:green:usr2/brightness";
+  char *LEDBrightness3 = "/sys/class/leds/beaglebone:green:usr3/brightness";
+
 void left(){
 
     if((LEDHandle = fopen(LEDBrightness0, "r+")) != NULL){
@@ -115,12 +121,7 @@ void right(){
  
 int main(int argc, char** argv) {
  
-  FILE *LEDHandle = NULL;
-  char *LEDBrightness0 = "/sys/class/leds/beaglebone:green:usr0/brightness";
-  char *LEDBrightness1 = "/sys/class/leds/beaglebone:green:usr1/brightness";
-  char *LEDBrightness2 = "/sys/class/leds/beaglebone:green:usr2/brightness";
-  char *LEDBrightness3 = "/sys/class/leds/beaglebone:green:usr3/brightness";
-
+ 
   
 
    char LorR;
