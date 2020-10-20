@@ -23,7 +23,7 @@ int main()
                 ;
           
             //call to setValue once
-            while(inGPIO.getValue() == 1){
+            while(state == 1){
                 outGPIO.setValue(HIGH);
                 usleep(500000);
                 outGPIO.setValue(LOW);
@@ -39,7 +39,7 @@ int main()
             usleep(20000);
             while (inGPIO.getValue() == 0)
                 ;
-            while(inGPIO.getValue() == 1){
+            while(state == 0){
             outGPIO.setValue(HIGH);
             usleep(200000);
             outGPIO.setValue(LOW);
