@@ -21,12 +21,16 @@ int main()
             //stuck until release
             while (inGPIO.getValue() == 0)
                 ;
-            state = 1;
+          
             //call to setValue once
-            outGPIO.setValue(HIGH);
-            usleep(500000);
-            outGPIO.setValue(LOW);
-            usleep(500000);
+            while(inGPIO.getValue() == 1){
+                outGPIO.setValue(HIGH);
+                usleep(500000);
+                outGPIO.setValue(LOW);
+                usleep(500000);
+
+            }
+            state = 1;
         }
         else
         {
@@ -35,10 +39,12 @@ int main()
             usleep(20000);
             while (inGPIO.getValue() == 0)
                 ;
+            while(inGPIO.getValue() == 1){
             outGPIO.setValue(HIGH);
             usleep(200000);
             outGPIO.setValue(LOW);
             usleep(200000);
+            }
             state = 0;
         }
     }
