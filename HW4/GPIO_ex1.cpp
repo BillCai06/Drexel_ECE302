@@ -25,7 +25,12 @@ int main()
                 //button pullup stuck until press
                 if (inGPIO.getValue() == 1)
                 {
-                    usleep(20000);
+                    while (inGPIO.getValue() == 1)
+                        ;
+                    usleep(20000); //slowdown
+                    //stuck until release
+                    while (inGPIO.getValue() == 0)
+                        ;
                     state = 1;
                 }
             }
@@ -41,7 +46,12 @@ int main()
                 usleep(200000);
                 if (inGPIO.getValue() == 1)
                 {
-                    usleep(20000);
+                    while (inGPIO.getValue() == 1)
+                        ;
+                    usleep(20000); //slowdown
+                    //stuck until release
+                    while (inGPIO.getValue() == 0)
+                        ;
                     state = 0;
                 }
             }
