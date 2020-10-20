@@ -14,7 +14,14 @@ int main()
     {
         if (state == 0)
         {
-            //button pullup stuck until press
+            
+            //call to setValue once
+            while(state == 0){
+                outGPIO.setValue(HIGH);
+                usleep(500000);
+                outGPIO.setValue(LOW);
+                usleep(500000);
+                //button pullup stuck until press
             while (inGPIO.getValue() == 1)
                 ;
             usleep(20000); //slowdown
@@ -22,35 +29,25 @@ int main()
             while (inGPIO.getValue() == 0)
                 ;
             state = 1;
-            //call to setValue once
-            while(state == 1){
-                outGPIO.setValue(HIGH);
-                usleep(500000);
-                outGPIO.setValue(LOW);
-                usleep(500000);
-                if(inGPIO.getValue() == 1){
-                    break;
-                }
+
 
             }
             
         }
-        else
+        else 
         {
+            
+            while(state == 1){
+            outGPIO.setValue(HIGH);
+            usleep(200000);
+            outGPIO.setValue(LOW);
+            usleep(200000);
             while (inGPIO.getValue() == 1)
                 ;
             usleep(20000);
             while (inGPIO.getValue() == 0)
                 ;
             state = 0;
-            while(state == 0){
-            outGPIO.setValue(HIGH);
-            usleep(200000);
-            outGPIO.setValue(LOW);
-            usleep(200000);
-            if(inGPIO.getValue() == 1){
-                    break;
-                }
             }
             
         }
