@@ -2,10 +2,11 @@
 #include <unistd.h> //for usleep
 #include "GPIO.h"
 #include <sys/time.h>
+#include <time.h>
 
 using namespace exploringBB;
 using namespace std;
-struct timeval stop, start;
+struct timespec  stop, start;
 
 int main()
 {
@@ -30,17 +31,17 @@ int main()
                 }
             }
         }
-else
+        else
         {
 
             while (state == 1)
             {
-               
+
                 if (inGPIO.getValue() == 1)
                 {
                     clock_gettime(CLOCK_MONOTONIC_RAW, &end);
                     uint64_t delta_us = (end.tv_sec - start.tv_sec) * 1000000 + (end.tv_nsec - start.tv_nsec) / 1000;
-                    cout << "Time pasted"<< delta_us << endl;   
+                    cout << "Time pasted" << delta_us << endl;
                 }
             }
         }
