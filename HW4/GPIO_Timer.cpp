@@ -6,7 +6,7 @@
 
 using namespace exploringBB;
 using namespace std;
-struct timespec  stop, start;
+struct timespec stop, start;
 
 int main()
 {
@@ -26,6 +26,13 @@ int main()
 
                 if (inGPIO.getValue() == 1)
                 {
+                    while (inGPIO.getValue() == 1)
+                        ;
+                    usleep(20000); //slowdown
+                    //stuck until release
+                    while (inGPIO.getValue() == 0)
+                        ;
+
                     clock_gettime(CLOCK_MONOTONIC_RAW, &start);
                     state = 1;
                 }
@@ -39,6 +46,12 @@ int main()
 
                 if (inGPIO.getValue() == 1)
                 {
+                    while (inGPIO.getValue() == 1)
+                        ;
+                    usleep(20000); //slowdown
+                    //stuck until release
+                    while (inGPIO.getValue() == 0)
+                        ;
                     clock_gettime(CLOCK_MONOTONIC_RAW, &stop);
                     uint64_t delta_us = (stop.tv_sec - start.tv_sec) * 1000000 + (stop.tv_nsec - start.tv_nsec) / 1000;
                     cout << "Time pasted" << delta_us << endl;
