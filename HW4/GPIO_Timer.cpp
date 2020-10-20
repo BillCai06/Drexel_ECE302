@@ -3,7 +3,8 @@
 #include "GPIO.h"
 #include "timercpp.h"
 
-
+using namespace exploringBB;
+using namespace std;
 int main()
 {
     GPIO outGPIO(60), inGPIO(46);
