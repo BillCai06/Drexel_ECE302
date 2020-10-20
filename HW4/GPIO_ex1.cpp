@@ -3,13 +3,16 @@
 #include "GPIO.h"
 using namespace exploringBB;
 using namespace std;
+
+GPIO outGPIO(60), inGPIO(46);
+// set GPIO directions
+outGPIO.setDirection(OUTPUT);
+inGPIO.setDirection(INPUT);
+int state = 0;
+
 int main()
 {
-    GPIO outGPIO(60), inGPIO(46);
-    // set GPIO directions
-    outGPIO.setDirection(OUTPUT);
-    inGPIO.setDirection(INPUT);
-    int state = 0;
+
     while (1)
     {
         if (state == 0)
@@ -23,13 +26,14 @@ int main()
                 ;
             state = 1;
             //call to setValue once
-            while(state == 1){
-               blink(500000);
-               if(inGPIO.getValue() == 1){
-                   break;
-               }
+            while (state == 1)
+            {
+                blink(500000);
+                if (inGPIO.getValue() == 1)
+                {
+                    break;
+                }
             }
-            
         }
         else
         {
@@ -39,22 +43,23 @@ int main()
             while (inGPIO.getValue() == 0)
                 ;
             state = 0;
-            while(state == 0){
+            while (state == 0)
+            {
                 blink(200000);
-                if(inGPIO.getValue() == 1){
-                   break;
-               }
+                if (inGPIO.getValue() == 1)
+                {
+                    break;
+                }
             }
-            
         }
     }
     return 0;
 }
-void blink(int us){
+void blink(int us)
+{
 
     outGPIO.setValue(HIGH);
     usleep(us);
     outGPIO.setValue(LOW);
     usleep(us);
-
 }
