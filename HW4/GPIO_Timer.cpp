@@ -39,8 +39,8 @@ int main()
 
                 if (inGPIO.getValue() == 1)
                 {
-                    clock_gettime(CLOCK_MONOTONIC_RAW, &end);
-                    uint64_t delta_us = (end.tv_sec - start.tv_sec) * 1000000 + (end.tv_nsec - start.tv_nsec) / 1000;
+                    clock_gettime(CLOCK_MONOTONIC_RAW, &stop);
+                    uint64_t delta_us = (stop.tv_sec - start.tv_sec) * 1000000 + (stop.tv_nsec - start.tv_nsec) / 1000;
                     cout << "Time pasted" << delta_us << endl;
                 }
             }
