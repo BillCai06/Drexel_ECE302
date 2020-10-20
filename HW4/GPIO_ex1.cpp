@@ -29,8 +29,7 @@ int main()
                         ;
                     usleep(20000); //slowdown
                     //stuck until release
-                    while (inGPIO.getValue() == 0)
-                        ;
+
                     state = 1;
                 }
             }
@@ -50,8 +49,7 @@ int main()
                         ;
                     usleep(20000); //slowdown
                     //stuck until release
-                    while (inGPIO.getValue() == 0)
-                        ;
+
                     state = 0;
                 }
             }
