@@ -1,10 +1,12 @@
 #include <iostream>
 #include <unistd.h> //for usleep
 #include "GPIO.h"
-#include "timercpp.h"
+#include <sys/time.h>
 
 using namespace exploringBB;
 using namespace std;
+struct timeval stop, start;
+
 int main()
 {
     GPIO outGPIO(60), inGPIO(46);
@@ -23,7 +25,7 @@ int main()
 
                 if (inGPIO.getValue() == 1)
                 {
-                    Timer t = Timer();
+                    clock_gettime(CLOCK_MONOTONIC_RAW, &start);
                     state = 1;
                 }
             }
@@ -36,8 +38,9 @@ else
                
                 if (inGPIO.getValue() == 1)
                 {
-                     t.stop();
-                     cout << "Time pasted"<< t << endl;   
+                    clock_gettime(CLOCK_MONOTONIC_RAW, &end);
+                    uint64_t delta_us = (end.tv_sec - start.tv_sec) * 1000000 + (end.tv_nsec - start.tv_nsec) / 1000;
+                    cout << "Time pasted"<< delta_us << endl;   
                 }
             }
         }
