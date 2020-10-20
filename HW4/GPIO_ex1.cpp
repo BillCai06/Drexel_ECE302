@@ -14,37 +14,37 @@ int main()
     {
         if (state == 0)
         {
-            
+
             //call to setValue once
-            while(state == 0){
+            while (state == 0)
+            {
                 outGPIO.setValue(HIGH);
                 usleep(500000);
                 outGPIO.setValue(LOW);
                 usleep(500000);
                 //button pullup stuck until press
-                 if(inGPIO.getValue() == 1){
-
+                if (inGPIO.getValue() == 1)
+                {
+                    usleep(20000);
                     state = 1;
                 }
-
-
             }
-            
         }
-        else 
+        else
         {
-            
-            while(state == 0){
-            outGPIO.setValue(HIGH);
-            usleep(200000);
-            outGPIO.setValue(LOW);
-            usleep(200000);
-            if(inGPIO.getValue() == 1){
 
+            while (state == 1)
+            {
+                outGPIO.setValue(HIGH);
+                usleep(200000);
+                outGPIO.setValue(LOW);
+                usleep(200000);
+                if (inGPIO.getValue() == 1)
+                {
+                    usleep(20000);
                     state = 0;
                 }
             }
-            
         }
     }
     return 0;
