@@ -24,11 +24,10 @@ int main()
             state = 1;
             //call to setValue once
             while(state == 1){
-                outGPIO.setValue(HIGH);
-                usleep(500000);
-                outGPIO.setValue(LOW);
-                usleep(500000);
-
+               blink(500000);
+               if(inGPIO.getValue() == 1){
+                   break;
+               }
             }
             
         }
@@ -41,13 +40,21 @@ int main()
                 ;
             state = 0;
             while(state == 0){
-            outGPIO.setValue(HIGH);
-            usleep(200000);
-            outGPIO.setValue(LOW);
-            usleep(200000);
+                blink(200000);
+                if(inGPIO.getValue() == 1){
+                   break;
+               }
             }
             
         }
     }
     return 0;
+}
+void blink(int us){
+
+    outGPIO.setValue(HIGH);
+    usleep(us);
+    outGPIO.setValue(LOW);
+    usleep(us);
+
 }
