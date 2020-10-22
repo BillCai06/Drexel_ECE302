@@ -23,7 +23,6 @@ void greater_t()
     fwrite("1", sizeof(char), 1, LEDHandle);
     fclose(LEDHandle);
   }
-
 }
 void less_t()
 {
@@ -63,7 +62,6 @@ void off()
     fclose(LEDHandle);
   }
 
-
   if ((LEDHandle = fopen(LEDBrightness2, "r+")) != NULL)
   {
     fwrite("0", sizeof(char), 1, LEDHandle);
@@ -82,7 +80,7 @@ int main(int argc, char **argv)
   int Int0;
   int Int1;
   cout << "First int "; // Type a number and press enter
-  cin >> Int0;             // Get user input from the keyboard
+  cin >> Int0;          // Get user input from the keyboard
   cout << "Second int ";
   cin >> Int1;
 
@@ -92,21 +90,19 @@ int main(int argc, char **argv)
     {
       off();
       greater_t();
-      
     }
     else if (Int0 < Int1)
     {
       off();
       less_t();
-
-      
     }
     else if (Int0 == Int1)
     {
       off();
       equal_t();
-
-    }else{
+    }
+    else
+    {
       cout << "check input ";
       break;
     }
