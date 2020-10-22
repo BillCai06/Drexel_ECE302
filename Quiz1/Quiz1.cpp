@@ -85,21 +85,22 @@ int main(int argc, char **argv)
   {
     if (Int0 > Int1)
     {
-      greater_t();
-      usleep(5000000);
       off();
+      greater_t();
+      
     }
     else if (Int0 < Int1)
     {
-      less_t();
-      usleep(5000000);
       off();
+      less_t();
+
+      
     }
     else if (Int0 == Int1)
     {
-      equal_t();
-      usleep(5000000);
       off();
+      equal_t();
+
     }else{
       cout << "check input ";
       break;
