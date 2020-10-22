@@ -16,7 +16,7 @@ char *LEDBrightness1 = "/sys/class/leds/beaglebone:green:usr1/brightness";
 char *LEDBrightness2 = "/sys/class/leds/beaglebone:green:usr2/brightness";
 char *LEDBrightness3 = "/sys/class/leds/beaglebone:green:usr3/brightness";
 
-void greater()
+void greater_t()
 {
   if ((LEDHandle = fopen(LEDBrightness0, "r+")) != NULL)
   {
@@ -25,7 +25,7 @@ void greater()
   }
 
 }
-void less()
+void less_t()
 {
 
   if ((LEDHandle = fopen(LEDBrightness3, "r+")) != NULL)
@@ -34,7 +34,7 @@ void less()
     fclose(LEDHandle);
   }
 }
-void equal()
+void equal_t()
 {
 
   if ((LEDHandle = fopen(LEDBrightness3, "r+")) != NULL)
@@ -85,19 +85,19 @@ int main(int argc, char **argv)
   {
     if (Int0 > Int1)
     {
-      greater();
+      greater_t();
       usleep(5000000);
       off();
     }
     else if (Int0 < Int1)
     {
-      less();
+      less_t();
       usleep(5000000);
       off();
     }
     else if (Int0 == Int1)
     {
-      equal();
+      equal_t();
       usleep(5000000);
       off();
     }else{
