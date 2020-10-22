@@ -37,7 +37,12 @@ void less_t()
 void equal_t()
 {
 
-  if ((LEDHandle = fopen(LEDBrightness3, "r+")) != NULL)
+  if ((LEDHandle = fopen(LEDBrightness1, "r+")) != NULL)
+  {
+    fwrite("1", sizeof(char), 1, LEDHandle);
+    fclose(LEDHandle);
+  }
+  if ((LEDHandle = fopen(LEDBrightness2, "r+")) != NULL)
   {
     fwrite("1", sizeof(char), 1, LEDHandle);
     fclose(LEDHandle);
