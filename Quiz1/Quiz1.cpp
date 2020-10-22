@@ -101,7 +101,7 @@ int main(int argc, char **argv)
       usleep(5000000);
       off();
     }else{
-      count << "check input ";
+      cout << "check input ";
       break;
     }
   }
