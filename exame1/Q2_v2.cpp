@@ -16,6 +16,7 @@ int main()
 
     while (1)
     {
+        outGPIO.setValue(LOW);
         for (int i = 0; i < 3;)
         {
              
@@ -23,7 +24,7 @@ int main()
             {
                 while (inGPIO1.getValue() == 1)
                     ;
-                outGPIO.setValue(HIGH);
+                
                 usleep(20000); //slowdown
                 check[i] = 1;
                 i++;
