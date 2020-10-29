@@ -25,7 +25,7 @@ int main()
 
     while (1)
     {
-        for (int i = 0; i < 6;)
+        for (int i = 0; i < 7;)
         {
 
             if (inGPIO.getValue() == 1)
