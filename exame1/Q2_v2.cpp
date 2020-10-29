@@ -33,6 +33,7 @@ int main()
                 i++;
             }
         }
+        cout << "code so far is " << check << " "<<endl;
         if (check == password)
         {
             outGPIO.setValue(HIGH);
