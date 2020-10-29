@@ -18,10 +18,12 @@ int main()
     {
         for (int i = 0; i < 3;)
         {
+             
             if (inGPIO1.getValue() == 1)
             {
                 while (inGPIO1.getValue() == 1)
                     ;
+                outGPIO.setValue(HIGH);
                 usleep(20000); //slowdown
                 check[i] = 1;
                 i++;
@@ -41,9 +43,6 @@ int main()
             cout << "led" << endl;
             outGPIO.setValue(HIGH);
 
-            usleep(500000);
-            while (inGPIO1.getValue() == 0)
-                ;
         }
     }
     return 0;
