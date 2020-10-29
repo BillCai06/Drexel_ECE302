@@ -10,7 +10,7 @@ int main()
     outGPIO.setDirection(OUTPUT);
     inGPIO0.setDirection(INPUT);
     inGPIO1.setDirection(INPUT);
-    int state = 0;
+
     int password[3] = {1, 0, 1};
     int check[3];
 
@@ -25,7 +25,7 @@ int main()
                 check[i] = 1;
                 i++;
             }
-            else if (inGPIO10.getValue() == 1)
+            else if (inGPIO0.getValue() == 1)
             {
                 while (inGPIO0.getValue() == 1)
                     ;
