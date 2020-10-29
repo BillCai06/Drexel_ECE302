@@ -21,10 +21,8 @@ using namespace std;
 int main()
 {
     GPIO inGPIO(46);
-    // set GPIO directions
-    outGPIO.setDirection(OUTPUT);
-    //inGPIO.setDirection(INPUT);
-    int state = 0;
+    inGPIO.setDirection(INPUT);
+  
     while (1)
     {
         for (int i = 0; i < 5)
