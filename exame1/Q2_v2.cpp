@@ -44,6 +44,9 @@ int main()
         {
             cout << "led" << endl;
             outGPIO.setValue(HIGH);
+            usleep(20000);
+            while (inGPIO0.getValue() == 0 AND inGPIO1.getValue() == 0)
+                ;
         }
     }
     return 0;
