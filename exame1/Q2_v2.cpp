@@ -22,7 +22,7 @@ int main()
             {
                 while (inGPIO1.getValue() == 1)
                     ;
-                    usleep(20000); //slowdown
+                usleep(20000); //slowdown
                 check[i] = 1;
                 i++;
             }
@@ -30,15 +30,17 @@ int main()
             {
                 while (inGPIO0.getValue() == 1)
                     ;
-                    usleep(20000); //slowdown
+                usleep(20000); //slowdown
                 check[i] = 0;
                 i++;
             }
         }
-        cout << "code so far is " << check[0]<<check[1]<<check[2] <<" "<<endl;
+        cout << "code so far is " << check[0] << check[1] << check[2] << " " << endl;
         if (check == password)
         {
             outGPIO.setValue(HIGH);
+            while (inGPIO1.getValue() == 1)
+                ;
         }
     }
     return 0;
