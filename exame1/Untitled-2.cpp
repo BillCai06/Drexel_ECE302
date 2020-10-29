@@ -43,15 +43,7 @@ int main()
                     fwrite("0", sizeof(char), 1, LEDHandle);
                     fclose(LEDHandle);
                 }
-                if (i == 6)
-                {
-
-                    if ((LEDHandle = fopen(LEDS[0], "r+")) != NULL)
-                    {
-                        fwrite("0", sizeof(char), 1, LEDHandle);
-                        fclose(LEDHandle);
-                    }
-                }
+                
                 i++;
             }
         }
