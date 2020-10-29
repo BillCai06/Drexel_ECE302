@@ -8,8 +8,8 @@ int main()
     GPIO outGPIO(60), inGPIO0(46), inGPIO1(26);
     // set GPIO directions
     outGPIO.setDirection(OUTPUT);
+    inGPIO0.setDirection(INPUT);
     inGPIO1.setDirection(INPUT);
-    inGPIO2.setDirection(INPUT);
     int state = 0;
 
         while (1)
