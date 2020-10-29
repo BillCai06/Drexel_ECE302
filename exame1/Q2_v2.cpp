@@ -39,6 +39,7 @@ int main()
         if (check == password)
         {
             outGPIO.setValue(HIGH);
+            usleep(500000);
             while (inGPIO1.getValue() == 1)
                 ;
         }
