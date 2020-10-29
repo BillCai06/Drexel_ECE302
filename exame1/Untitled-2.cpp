@@ -25,7 +25,7 @@ int main()
   
     while (1)
     {
-        for (int i = 0; i < 5;)
+        for (int i = 0; i < 6;)
         {
 
 
@@ -37,12 +37,12 @@ int main()
 
                 if ((LEDHandle = fopen(LEDS[i], "r+")) != NULL)
                 {
-                    fwrite("0", sizeof(char), 1, LEDHandle);
+                    fwrite("1", sizeof(char), 1, LEDHandle);
                     fclose(LEDHandle);
                 }
-                 if ((LEDHandle = fopen(LEDS[i+1], "r+")) != NULL)
+                 if ((LEDHandle = fopen(LEDS[i-1], "r+")) != NULL)
                 {
-                    fwrite("1", sizeof(char), 1, LEDHandle);
+                    fwrite("0", sizeof(char), 1, LEDHandle);
                     fclose(LEDHandle);
                 }
                 i++;
