@@ -22,6 +22,7 @@ int main()
             {
                 while (inGPIO1.getValue() == 1)
                     ;
+                    usleep(20000); //slowdown
                 check[i] = 1;
                 i++;
             }
@@ -29,6 +30,7 @@ int main()
             {
                 while (inGPIO0.getValue() == 1)
                     ;
+                    usleep(20000); //slowdown
                 check[i] = 0;
                 i++;
             }
