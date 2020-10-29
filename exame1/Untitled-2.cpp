@@ -25,7 +25,7 @@ int main()
   
     while (1)
     {
-        for (int i = 0; i < 5)
+        for (int i = 0; i < 5;)
         {
 
             if ((LEDHandle = fopen(LEDS[i], "r+")) != NULL)
