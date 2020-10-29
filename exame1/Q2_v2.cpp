@@ -11,8 +11,8 @@ int main()
     inGPIO0.setDirection(INPUT);
     inGPIO1.setDirection(INPUT);
 
-    std::array<int, 3>  password {1, 0, 1};
-    std::array<int, 3>  check;
+    int password[3] = {1, 0, 1};
+    int check[3];
 
     while (1)
     {
@@ -36,9 +36,9 @@ int main()
             }
         }
         cout << "code so far is " << check[0] << check[1] << check[2] << " " << endl;
-        if (check == password)
+        if (std::equal(std::begin(password), std::end(password), std::begin(check)))
         {
-             cout << "led On" << endl;
+            cout << "led" << endl;
             outGPIO.setValue(HIGH);
 
             usleep(500000);
