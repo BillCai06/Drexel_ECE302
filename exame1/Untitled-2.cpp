@@ -23,7 +23,7 @@ int main()
     GPIO inGPIO(46);
     // set GPIO directions
     outGPIO.setDirection(OUTPUT);
-    inGPIO.setDirection(INPUT);
+    //inGPIO.setDirection(INPUT);
     int state = 0;
     while (1)
     {
