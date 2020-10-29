@@ -28,11 +28,7 @@ int main()
         for (int i = 0; i < 5;)
         {
 
-            if ((LEDHandle = fopen(LEDS[i], "r+")) != NULL)
-            {
-                fwrite("1", sizeof(char), 1, LEDHandle);
-                fclose(LEDHandle);
-            }
+
 
             if (inGPIO.getValue() == 1)
             {
