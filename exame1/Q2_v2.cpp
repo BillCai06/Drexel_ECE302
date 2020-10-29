@@ -11,8 +11,8 @@ int main()
     inGPIO0.setDirection(INPUT);
     inGPIO1.setDirection(INPUT);
 
-    std::array<int, 3>  password[3] = {1, 0, 1};
-    std::array<int, 3>  check[3];
+    std::array<int, 3>  password {1, 0, 1};
+    std::array<int, 3>  check;
 
     while (1)
     {
