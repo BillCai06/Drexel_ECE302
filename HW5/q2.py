@@ -14,6 +14,7 @@ while True:
     new_switch_state = GPIO.input("P8_12")
     if new_switch_state == 1 and old_switch_state == 0 :
         flag = flag + 1 
+        print(flag)
     angle = flag * 45
     
     angle_f = float(angle)
