@@ -13,6 +13,7 @@ PWM.start(servo_pin, (100-duty_min), 60.0,1)
 while True:
     new_switch_state = GPIO.input("P8_12")
     if new_switch_state == 1 and old_switch_state == 0 :
+        time.sleep(0.2)
         flag = flag + 1 
         print(flag)
     angle = flag * 45
