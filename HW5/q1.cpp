@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     // set GPIO directions
     outGPIO.setDirection(OUTPUT);
     inGPIO.setDirection(INPUT);
-    int state = 0;
+    
     cout << "Starting the readLDR program" << endl;
     while (1)
     {
