@@ -5,7 +5,7 @@ duty_min = 3
 duty_max = 14.5
 duty_span = duty_max - duty_min
  
-PWM.start(servo_pin, (100-duty_min), 60.0)
+PWM.start(servo_pin, (100-duty_min), 60.0,1)
  
 while True:
     angle = raw_input("Angle (0 to 180 x to exit):")
