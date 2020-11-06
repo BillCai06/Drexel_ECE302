@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
     while (1)
     {
         int value = readAnalog(0);
-        if (value = > 2048)
+        if (value >= 2048)
         {
             outGPIO.setValue(LOW);
         }
