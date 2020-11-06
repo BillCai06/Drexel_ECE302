@@ -1,8 +1,8 @@
 import Adafruit_BBIO.PWM as PWM
  
-servo_pin = "P8_13"
-duty_min = 3
-duty_max = 14.5
+servo_pin = "P9_22"
+duty_min = 85
+duty_max = 95
 duty_span = duty_max - duty_min
  
 PWM.start(servo_pin, (100-duty_min), 60.0)
