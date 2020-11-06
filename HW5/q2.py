@@ -1,5 +1,6 @@
 import Adafruit_BBIO.PWM as PWM
 import Adafruit_BBIO.GPIO as GPIO
+import time
 
 GPIO.setup("P8_12", GPIO.IN)
 old_switch_state = 0
