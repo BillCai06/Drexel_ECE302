@@ -23,10 +23,13 @@ def distanceMeasurement(TRIG,ECHO):
 #Configuration
 GPIO.setup("P9_15",GPIO.OUT) #Trigger
 GPIO.setup("P9_12",GPIO.IN)  #Echo
-
+GPIO.setup("P9_11",GPIO.OUT) #Trigger
+GPIO.setup("P9_13",GPIO.IN)  #Echo
 #Security
-GPIO.output("P9_11", False)
 GPIO.output("P9_15", False)
+GPIO.output("P9_12", False)
+GPIO.output("P9_11", False)
+GPIO.output("P9_13", False)
 time.sleep(0.5)
 try:
     while True:
