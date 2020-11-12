@@ -1,37 +1,17 @@
-#!/usr/bin/python3
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import Adafruit_BBIO.GPIO as GPIO
 import time
 
-# HC-SR04 connection
-# red wire
-vcc = "5V"
+def distanceMeasurement(TRIG,ECHO):
 
-# white wire
-trigger = "P8_12"
-
-# blue wire using resistor
-echo = "P8_11" #echo = "GPIO1_17"
-
-# black wire
-gnd = "GND"
-
-
-GPIO.cleanup()
-time.sleep(2)
-
-
-def distance_measurement(TRIG,ECHO):
     GPIO.output(TRIG, True)
     time.sleep(0.00001)
     GPIO.output(TRIG, False)
-    pulseStart = time.time()
-    pulseEnd = time.time()
-    counter = 0
+
     while GPIO.input(ECHO) == 0:
         pulseStart = time.time()
-        counter += 1
     while GPIO.input(ECHO) == 1:
         pulseEnd = time.time()
 
@@ -40,28 +20,20 @@ def distance_measurement(TRIG,ECHO):
     distance = round(distance, 2)
     return distance
 
+#Configuration
+GPIO.setup("P9_15",GPIO.OUT) #Trigger
+GPIO.setup("P9_12",GPIO.IN)  #Echo
 
-# Configuration
-print("trigger: [{}]".format(trigger))
-GPIO.setup(trigger, GPIO.OUT) #Trigger
-print("echo: [{}]".format(echo))
-GPIO.setup(echo, GPIO.IN)  #Echo
-GPIO.output(trigger, False)
-print("Setup completed!")
-
-# Security
-GPIO.output(trigger, False)
+#Security
+GPIO.output("P9_11", False)
+GPIO.output("P9_15", False)
 time.sleep(0.5)
-print("Security!")
-distance = distance_measurement(trigger, echo)
-while True:
-    print("Distance: [{}] cm.".format(distance))
-    time.sleep(2)
-    if distance <= 5:
-        print("Too close! Exiting...")
-        break
-    else:
-        distance = distance_measurement(trigger, echo)
-
-GPIO.cleanup()
-print("Done")
+try:
+    while True:
+        recoveredDistance = distanceMeasurement("P9_11","P9_13")
+        print ("Distance1: ", recoveredDistance, "cm")
+       
+    time.sleep(1)
+except KeyboardInterrupt:
+    print "Measurement stopped by user"
+    GPIO.cleanup()
