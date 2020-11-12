@@ -9,10 +9,10 @@ import time
 vcc = "5V"
 
 # white wire
-trigger = "P8_12"
+trigger = "GPIO1_12"
 
 # blue wire using resistor
-echo = "P8_11" #echo = "GPIO1_17"
+echo = "GPIO1_13" #echo = "GPIO1_13"
 
 # black wire
 gnd = "GND"
@@ -52,7 +52,7 @@ print("Setup completed!")
 # Security
 GPIO.output(trigger, False)
 time.sleep(0.5)
-
+print("triggered")
 distance = distance_measurement(trigger, echo)
 while True:
     print("Distance: [{}] cm.".format(distance))
