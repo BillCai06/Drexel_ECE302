@@ -5,11 +5,11 @@ import Adafruit_BBIO.GPIO as GPIO
 import time
 
 def distanceMeasurement(TRIG,ECHO):
-
+    print ("In loop")
     GPIO.output(TRIG, True)
     time.sleep(0.00001)
     GPIO.output(TRIG, False)
-
+    print (GPIO.input(ECHO))
     while GPIO.input(ECHO) == 0:
         pulseStart = time.time()
     while GPIO.input(ECHO) == 1:
@@ -31,6 +31,7 @@ GPIO.output("P9_15", False)
 time.sleep(0.5)
 try:
     while True:
+        
         recoveredDistance = distanceMeasurement("P9_15","P9_12")
         print ("Distance1: ", recoveredDistance, "cm")
        
