@@ -31,7 +31,7 @@ GPIO.output("P9_15", False)
 time.sleep(0.5)
 try:
     while True:
-        recoveredDistance = distanceMeasurement("P9_11","P9_13")
+        recoveredDistance = distanceMeasurement("P9_15","P9_12")
         print ("Distance1: ", recoveredDistance, "cm")
        
     time.sleep(1)
