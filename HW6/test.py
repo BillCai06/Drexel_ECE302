@@ -7,7 +7,7 @@ import time
 vcc = "5V"
 
 # white wire
-trigger = "GPIO1_25"
+trigger = "GPIO1_28"
 
 # blue wire using resistor
 echo = "P9_23" #echo = "GPIO1_17"
@@ -22,7 +22,7 @@ time.sleep(2)
 
 def distance_measurement(TRIG,ECHO):
     GPIO.output(TRIG, True)
-    time.sleep(0.00001)
+    time.sleep(0.0001)
     GPIO.output(TRIG, False)
     pulseStart = time.time()
     pulseEnd = time.time()
