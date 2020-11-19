@@ -22,8 +22,9 @@ time.sleep(2)
 
 def distance_measurement(TRIG,ECHO):
     GPIO.output(TRIG, True)
-    time.sleep(0.0001)
+    time.sleep(0.00001)
     GPIO.output(TRIG, False)
+    
     pulseStart = time.time()
     pulseEnd = time.time()
     counter = 0
